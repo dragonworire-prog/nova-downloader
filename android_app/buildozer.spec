@@ -1,0 +1,84 @@
+[app]
+
+title = Nova Downloader
+package.name = novadownloader
+package.domain = org.nova
+source.dir = .
+source.include_exts = py,png,jpg,jpeg,ttf,mp3,mp4
+version = 1.0.0
+version.regex = __version__ = ['"](.*)['"]
+version.filename = %(source.dir)s/main.py
+requirements = python3,kivy==2.3.1,kivymd==2.0.1,yt-dlp>=2024,requests
+orientation = portrait
+osx.python_version = 3
+osx.kivy_version = 2.1.0
+fullscreen = 0
+presplash.filename = %(source.dir)s/assets/splash.png
+icon.filename = %(source.dir)s/assets/icon.png
+android.api = 34
+android.ndk = 27
+android.sdk = 34
+android.minapi = 24
+android.gradle_dependencies = 'androidx.core:core:1.12.0'
+android.add_src =
+android.permissions = INTERNET,ACCESS_NETWORK_STATE,WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE,READ_MEDIA_VIDEO,READ_MEDIA_AUDIO
+android.arch = arm64-v8a
+android.allow_backup = True
+android.wakelock = True
+android.keystore =
+android.keystore.alias =
+android.private_storage = True
+android.store_gradle_headers = False
+android.agp_version = 8.2.2
+android.enable_androidx = True
+android.enable_commons = True
+android.debug = True
+android.accept_sdk_license = True
+android.copy_libs = True
+android.use_system_ffmpeg = True
+android.add_src_patterns = 
+android.extra_link_args = 
+android.extra_compile_args = 
+android.extra_java_files = 
+android.extra_manifest = 
+android.manifest_application_kwargs = 
+android.manifest_intent_filter = 
+android.manifest_placeholders = 
+android.manifest_version_code = 1
+android.manifest_version_name = 1.0.0
+android.jar_dependencies = 
+android.library = False
+android.override_java_files = 
+android.package_name = org.nova.novadownloader
+android.resources = 
+android.sign = True
+android.source = 
+android.sources = 
+android.splash = 
+android.ssl = True
+android.subprojects = 
+android.used_libs = 
+android.wakelock_timeout = 0
+android.wayland = False
+android.websockets = True
+android.white_list = 
+android.white_list_blacklist = 
+android.window_soft_input_mode = adjustResize
+android.xpermissions = 
+android.xpermissions_extra = 
+android.xpermissions_extra_str = 
+android.xpermissions_fix = 
+android.xpermissions_remove = 
+android.xpermissions_replace = 
+android.xpermissions_sdk = 
+android.xpermissions_sdk_extra = 
+android.xpermissions_sdk_extra_str = 
+android.xpermissions_sdk_fix = 
+android.xpermissions_sdk_remove = 
+android.xpermissions_sdk_replace = 
+
+[buildozer]
+
+log_level = 2
+warn_on_root = 1
+archs = arm64-v8a
