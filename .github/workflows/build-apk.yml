@@ -25,7 +25,7 @@ jobs:
           python -c "from PIL import Image; Image.new('RGBA',(400,800),(26,115,232,255)).save('assets/splash.png'); Image.new('RGBA',(192,192),(26,115,232,255)).save('assets/icon.png')"
       - name: Build APK
         working-directory: ./android_app
-        run: yes | buildozer android debug
+        run: buildozer android debug
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
