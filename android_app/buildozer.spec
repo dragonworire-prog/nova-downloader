@@ -7,7 +7,7 @@ source.dir = .
 source.include_exts = py,png,jpg,jpeg,ttf,mp3,mp4
 version.regex = __version__ = ['"](.*)['"]
 version.filename = %(source.dir)s/main.py
-requirements = python3,kivy==2.3.1,kivymd==2.0.1,yt-dlp>=2024,requests
+requirements = python3,kivy==2.3.1,kivymd==2.0.0,yt-dlp>=2024,requests
 # ... rest of config
 orientation = portrait
 osx.python_version = 3
