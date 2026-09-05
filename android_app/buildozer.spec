@@ -7,7 +7,7 @@ source.dir = .
 source.include_exts = py,png,jpg,jpeg,ttf,mp3,mp4
 version.regex = __version__ = ['"](.*)['"]
 version.filename = %(source.dir)s/main.py
-requirements = python3,kivy==2.3.1,kivymd==2.0.0,yt-dlp>=2024,requests
+requirements = python3,kivy==2.3.1,kivymd==0.104.2,yt-dlp>=2024,requests
 # ... rest of config
 orientation = portrait
 osx.python_version = 3
@@ -29,7 +29,7 @@ android.keystore =
 android.keystore.alias =
 android.private_storage = True
 android.store_gradle_headers = False
-android.agp_version = 8.2.2
+android.agp_version = 8.1.0
 android.enable_androidx = True
 android.enable_commons = True
 android.debug = True
