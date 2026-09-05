@@ -5,6 +5,8 @@ import time
 from pathlib import Path
 from typing import Any, Dict, Optional
 
+__version__ = "1.0.0"
+
 from kivy.clock import Clock
 from kivy.core.window import Window
 from kivy.lang import Builder
