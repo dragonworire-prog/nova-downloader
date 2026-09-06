@@ -1,26 +1,58 @@
-name: Build Android APK
+name: Build APK
 
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'android_app/**'
+      - '.github/workflows/build-apk.yml'
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Build with Buildozer Action
-      uses: ArtemSBulgakov/buildozer-action@v1
-      with:
-        workdir: android_app
-        buildozer_version: master
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-    - name: Upload APK Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: python-app-apk
-        path: android_app/bin/*.apk
+      - name: Install system deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            git python3-pip python3-dev python3-venv \
+            libffi-dev libssl-dev ffmpeg \
+            autoconf automake libtool pkg-config ccache \
+            wget curl unzip zip openjdk-17-jdk
+
+      - name: Install Buildozer & Dependencies
+        run: |
+          pip install --upgrade pip setuptools virtualenv "Cython<3.0" buildozer Pillow
+
+      - name: Create placeholder assets
+        run: |
+          mkdir -p android_app/assets
+          python -c "
+          from PIL import Image
+          img = Image.new('RGBA', (400, 800), (26, 115, 232, 255))
+          img.save('android_app/assets/splash.png')
+          img2 = Image.new('RGBA', (192, 192), (26, 115, 232, 255))
+          img2.save('android_app/assets/icon.png')
+          "
+
+      - name: Build with Buildozer
+        working-directory: ./android_app
+        env:
+          ACCEPT_BUILD_LICENSES: "y"
+        run: |
+          yes | buildozer -v android debug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nova-Downloader-APK
+          path: android_app/bin/*.apk
